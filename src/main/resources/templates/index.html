@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>List of Institutions</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></link>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!--  Bootstrap CSS -->
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}"></link>
+</head>
+<body>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Headquarter</th>
+				<th scope="col">Acronyms</th>
+				<th scope="col">Name</th>
+				<th scope="col">Locations</th>
+				<th scope="col">Remove</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="institution : ${institutions}">
+				<td th:text="${institution.headquarter}"></td>
+				<td th:text="${institution.acronym}"></td>
+				<td th:text="${institution.name}"></td>
+				<td th:text="${institution.location}"></td>
+				<td><a th:href="@{/remove(id_institution=${institution.id_institution})}"
+					class="confirm-delete btn mini red-stripe" role="button"
+					data-title="kitty" data-id="2">Remove</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<div align="right">
+		<a href="/addInstitution" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">+ Add Institution</a>
+	</div>
+</body>
+</html>
+
+
+
