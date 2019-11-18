@@ -19,7 +19,7 @@ Con el proposito de disminuir la compleja tarea de configuración del ambiente d
 
 ### Maven
 
-Si usted no ha tenido la oportunidad de haber utilizado una herramienta de software, para la gestión y construcción de proyectos, como Maven puede encontrar más información en distintas fuentes. Sin embargo, para el proposito del proyecto es necesario que tenga en cuenta que debe realizar los siguientes pasos para descargar librerias que el proyecto necesita y para validar que el proyecto no presente ninguna inconsistencia.
+Si usted no ha tenido la oportunidad de haber utilizado una herramienta de software, para la gestión y construcción de proyectos, como Maven no se preocupe para el proposito del proyecto es necesario que tenga en cuenta que debe realizar los siguientes pasos para descargar librerias que el proyecto necesita y para validar que el proyecto no presente ninguna inconsistencia.
 
 - Descargar librerias: en Eclipse, ubicarse encima de la raíz del proyecto y dar boton derecho, buscar la opción en el menú desplegable, "Maven" y luego seleccionar la opción "Update Project...". En ese instante empezara a descargar las librerias necesarias, tomara unos minutos hacerlo.
 
@@ -47,6 +47,21 @@ Para iniciar la aplicación utilizar la siguiente url:
 
 `http://localhost:8080/`
 
+### Docker
+
+Si es de su preferencia utilizar contenedores, el proyecto web(sin incluir la base de datos) se encuentra en DockerHub. Para descargarlo utilice el siguiente comando:
+
+`docker push luisfben/docker-demo-institution:tagname`
+
+Luego de bajar el contenedor, utilizar el siguiente comando:
+
+`docker run -p 8080:8080 docker-demo-institution`
+
+IMPORTANTE: si opta por esta opcíon tener en cuenta que la configuración de la base de datos debe ser igual a la que tiene el proyecto en el git.
+
+Más información aquí:
+https://hub.docker.com/repository/docker/luisfben/docker-demo-institution
+
 ## Descripción del proyecto
 
 El proyecto contiene los siguientes paquetes, de acuerdo a su proposito.
@@ -63,5 +78,7 @@ Las librerias de Bootstrap estan aquí:
 Las pantallas estan aquí:
 
 `/src/main/resources/templates`
+
+Para la gestión de la base de datos se utilizó jpa-hibernate.
 
 La aplicación es compatible con Java 1.8.
